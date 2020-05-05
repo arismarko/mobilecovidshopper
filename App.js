@@ -1,6 +1,9 @@
+import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from "./src/screens/HomeScreen";
+
+import { StoreProvider } from './src/context/StoreContext';
 
 const navigator = createStackNavigator(
   {
@@ -14,4 +17,12 @@ const navigator = createStackNavigator(
   }
 );
 
-export default createAppContainer(navigator);
+const App = createAppContainer(navigator);
+
+export default () => {
+  return (
+    <StoreProvider>
+      <App />
+    </StoreProvider>
+  );
+};

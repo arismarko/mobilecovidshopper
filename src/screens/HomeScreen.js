@@ -17,7 +17,7 @@ const list = [
   },
   {
     name: 'Get notified',
-    subtitle: 'By the community'
+    subtitle: 'For items'
   },
 ]
 
