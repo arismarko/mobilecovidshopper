@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19003,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 31465,
+  "expoServerNgrokUrl": "https://f6-e8r.anonymous.mobilecovidshopper.exp.direct",
+  "packagerNgrokUrl": "https://packager.f6-e8r.anonymous.mobilecovidshopper.exp.direct",
+  "ngrokPid": 31488
 }

@@ -1,23 +1,19 @@
 import React, {useState} from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 
-const Search = () => {
-    const [name, setName] = useState('')
-
-    return (
+const Search = ({search}) => (
         <View style={styles.viewStyle}>
            <Text style={styles.label}>Search</Text>
            <TextInput 
             style={styles.input}
             autoCapitalize='none' 
             autoCorrect={false}
-            value={name}
-            onChangeText={(newValue) => setName(newValue)}
+            value={""}
+            onChangeText={(newValue) => search(newValue)}
            />
-           <Text>{name}</Text>
         </View>
-    )
-}
+)
+
 
 const styles = StyleSheet.create({
     label: {
