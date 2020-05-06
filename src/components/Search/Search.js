@@ -20,7 +20,7 @@ const Search = ({search}) => {
             value={name}
             onChangeText={(newValue) => setSearch(newValue)}
            />
-           <Text>You search for {name}</Text>
+           <Text>You searched for {name}</Text>
         </View>
     )
 }

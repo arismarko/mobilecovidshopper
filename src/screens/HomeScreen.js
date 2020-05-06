@@ -5,6 +5,7 @@ import Nav from '../components/Nav/Nav';
 import Stores from '../components/Stores/Stores';
 import Header from '../components/Header/Header';
 import Search from '../components/Search/Search';
+import Map from '../components/Map/Map';
 
 import { Context } from '../context/StoreContext';
 
@@ -28,8 +29,6 @@ const HomeScreen = () => {
 
   const searchStores = (search) => {
     getStores(search);
-
-    console.log(state);
   }
 
   return <View style={styles.viewStyle}>
@@ -39,7 +38,8 @@ const HomeScreen = () => {
     />
     <Nav items={list}/>
     <Search search={searchStores} />
-    <Stores  data={state} />
+    {/* <Stores  data={state} /> */}
+    <Map stores={state} />
   </View>
 };
 
