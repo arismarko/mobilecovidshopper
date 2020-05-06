@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import { Text,StyleSheet, View } from "react-native";
+import {StyleSheet, View } from "react-native";
 
 import Nav from '../components/Nav/Nav';
 import Stores from '../components/Stores/Stores';
@@ -24,7 +24,7 @@ const list = [
   },
 ]
 
-const HomeScreen = () => {
+const HomeScreen = props => {
   const { state, getStores } = useContext(Context);
 
   const searchStores = (search) => {
@@ -36,7 +36,7 @@ const HomeScreen = () => {
       title="CovidShopper" 
       imageSource={require('../../assets/logo.jpg')}
     />
-    <Nav items={list}/>
+    <Nav items={list} navigation={props.navigation} />
     <Search search={searchStores} />
     {/* <Stores  data={state} /> */}
     <Map stores={state} />
