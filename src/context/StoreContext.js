@@ -4,12 +4,11 @@ import createDataContext from './createDataContext';
 
 import axios from 'axios';
 
-const itemsReducer = (state, action) => {
+const storesReducer = (state, action) => {
     switch (action.type) {
-        case 'add_item':
-            return [...state, item]
         case 'get_stores':
-                return [...state, action.payload]
+            console.log(action.payload);
+            return action.payload
         default:
             return state;
     }
@@ -18,7 +17,9 @@ const itemsReducer = (state, action) => {
 const getStores = dispatch => {
     return async (searchTerm) => {
         const today = new Date();
-        const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        const date = '2020-5-5';
+        
+        //today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
 
         const response = await axios.get(`https://ariskorona.herokuapp.com/api/stores?missing=${searchTerm}&date=${date}`)
@@ -39,7 +40,7 @@ const addStore = dispatch => {
 }
 
 export const { Context, Provider } = createDataContext(
-    itemsReducer, 
+    storesReducer, 
     { getStores, addStore },
     []
 );

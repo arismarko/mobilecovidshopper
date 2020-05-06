@@ -26,13 +26,10 @@ const list = [
 const HomeScreen = () => {
   const { state, getStores } = useContext(Context);
 
-  // useEffect(() =>  {
-  //   getStores('detol')
-  // }, [])
-
   const searchStores = (search) => {
-    console.log(search);
     getStores(search);
+
+    console.log(state);
   }
 
   return <View style={styles.viewStyle}>
@@ -42,8 +39,7 @@ const HomeScreen = () => {
     />
     <Nav items={list}/>
     <Search search={searchStores} />
-    <Stores />
-
+    <Stores  data={state} />
   </View>
 };
 
