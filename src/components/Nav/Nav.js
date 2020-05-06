@@ -2,18 +2,19 @@ import React from 'react';
 import {Text,View, StyleSheet, Button } from 'react-native';
 import { ListItem } from 'react-native-elements'
 
-const Nav = ({items}) => {
+const Nav = ({items, navigation}) => {
     return (
         <View style={styles.viewStyle}>
             {
                 items.map((l, i) => (
-                <ListItem
-                    style={styles.textStyle}
-                    key={i}
-                    title={l.name}
-                    subtitle={l.subtitle}
-                    bottomDivider
-                />
+                    <ListItem
+                        style={styles.textStyle}
+                        key={i}
+                        title={l.name}
+                        subtitle={l.subtitle}
+                        bottomDivider
+                        onPress={() => {navigation.navigate(`${l.name}`)}}
+                    />
                 ))
             }
         </View>
@@ -22,13 +23,13 @@ const Nav = ({items}) => {
 
 const styles = StyleSheet.create({
     viewStyle: {
-        flex: 1, 
         flexDirection: 'row',
-        margin: 10
+        margin: 5,
+        height: 20
     },
     textStyle: {
         flex: 1,
-        height: 60
+        height: 40
     }
 });
 
