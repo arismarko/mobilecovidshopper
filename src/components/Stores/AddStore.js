@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
-import { Button, Text } from 'native-base';
+import React, { useState, useContext, useEffect } from 'react';
+import { Button, Text, Content } from 'native-base';
 import {View, StyleSheet } from 'react-native';
 
 import FormInput from '../FormInput/FormInput';
 import Items from '../Items/Items';
 
-const AddStore = ({data}) => {
+import { getLocationAsync, getGeocodeAsync } from '../../helpers/location';
+
+import { Context } from '../../context/ItemsContext';
+
+const AddStore = ({handleAdd}) => {
     const [form, setForm] = useState({});
-    const [hide, setHide] = useState(true)
+    const [hide, setHide] = useState(true);
+    const [currentLocation, setCurrentLocation] = useState({longitude: 0, latitude: 0});
+
+    const {state} = useContext(Context);
 
     const updateForm = ({name, value}) => {
         let formCopy = form;
@@ -19,7 +26,23 @@ const AddStore = ({data}) => {
 
     const addStore = () => {
 
+        form.items = state;
+        form.coordinates = currentLocation;
+
+        handleAdd(form)
     }
+
+    useEffect(() => {
+        // Update the document title using the browser API
+
+        const getLocation = async () => {
+
+          const location = await getLocationAsync();
+          setCurrentLocation(location);
+        }
+
+        getLocation();
+    },[])
 
     return <View style={styles.viewStyle}>
         {hide && 

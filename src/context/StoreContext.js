@@ -9,10 +9,9 @@ import axios from 'axios';
 const getStores = dispatch => {
     return async (searchTerm) => {
         const today = new Date();
-        const date = '2020-5-5';
-        
-        //today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
+        console.log(date);
 
         const response = await axios.get(`https://ariskorona.herokuapp.com/api/stores?missing=${searchTerm}&date=${date}`)
         .catch(error => console.log(error));
@@ -22,9 +21,11 @@ const getStores = dispatch => {
 }
 
 const addStore = dispatch => {
-    return async (item) => {
-        const response = await jsonServer.post(`/stores`);
-
+    return async (store) => {
+        console.log(store);
+        const response = await axios.post(`https://ariskorona.herokuapp.com/api/stores`, store).
+        catch(error => console.log(error));
+        
         dispatch({type: 'add_store', payload: response.data});
     }
 }

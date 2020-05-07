@@ -39,7 +39,7 @@ const HomeScreen = props => {
     <Nav items={list} navigation={props.navigation} />
     <Search search={searchStores} />
     {/* <Stores  data={state} /> */}
-    <Map stores={state} />
+    <Map stores={state} updateCurrentLoc={(location) => setCurrentLoc(location)} />
   </View>
 };
 

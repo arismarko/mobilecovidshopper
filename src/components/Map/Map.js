@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import MapView, {Marker, PROVIDER_GOOGLE } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
-import {View, StyleSheet, Button, Text } from 'react-native';
-import * as Location from 'expo-location';
-import * as Permissions from 'expo-permissions';
+import { View, StyleSheet, Button, Text } from 'react-native';
+
+import { getLocationAsync, getGeocodeAsync } from '../../helpers/location';
 
 
 const styles = StyleSheet.create({
@@ -17,51 +17,40 @@ const styles = StyleSheet.create({
  },
 });
 
-export default ({stores}) => {
+export default ({stores, updateCurrentLoc }) => {
     const [currentLocation, setCurrentLocation] = useState({longitude: 0, latitude: 0});
-    const [geocode, setGeocode] = useState(null);
     const [markers, setMarkers] = useState([]);
 
     useEffect(() => {
         // Update the document title using the browser API
-        getLocationAsync()
 
-        const markers = stores.map(store => {
-          return {
-            latitude: store.coordinates.split(',')[0],
-            longitude: store.coordinates.split(',')[1],
-            title: store.storename,
-            left: store.Item[0].number
-          }
-        })
+        const getLocation = async () => {
 
-        setMarkers(markers);
+          const location = await getLocationAsync();
+          setCurrentLocation(location);
+        }
+
+        getLocation();
+
+        if (stores.length > 0) {
+          
+          const markers = stores.map(store => {
+            return {
+              latitude: store.coordinates.split(',')[0],
+              longitude: store.coordinates.split(',')[1],
+              title: store.storename,
+              left: store.Item[0].number
+            }
+          })
+        
+          setMarkers(markers);
+        }
 
     }, [stores]);
 
-    const getLocationAsync = async () => {
-        let { status } = await Permissions.askAsync(Permissions.LOCATION);
-        if (status !== 'granted') {
-          this.setState({
-            errorMessage: 'Permission to access location was denied',
-          });
-        }
-    
-        let location = await Location.getCurrentPositionAsync({accuracy:Location.Accuracy.Highest});
-        const { latitude , longitude } = location.coords
-        getGeocodeAsync({latitude, longitude})
-        setCurrentLocation({latitude, longitude});
-    };
-
-    const getGeocodeAsync = async (location) => {
-        let geocode = await Location.reverseGeocodeAsync(location)
-        setGeocode({ geocode})
-    }
-
    return (
    <View style={styles.container}>
-     <Text>Hello</Text>
-     <MapView
+   <MapView
        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
        style={styles.map}
        region={{
@@ -71,7 +60,7 @@ export default ({stores}) => {
          longitudeDelta: 0.0121,
        }}
      >
-      {markers.map(({longitude, latitude, title, left}, index) => {
+      { stores.length > 0 && markers.map(({longitude, latitude, title, left}, index) => {
           return (
             <Marker
               key={index}
