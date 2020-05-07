@@ -1,30 +1,91 @@
-import React from 'react';
-import {View, StyleSheet, Button, Text } from 'react-native';
+import React, { useState, useContext, useEffect } from 'react';
+import { Button, Text, Content } from 'native-base';
+import {View, StyleSheet } from 'react-native';
 
 import FormInput from '../FormInput/FormInput';
+import Items from '../Items/Items';
 
+import { getLocationAsync, getGeocodeAsync } from '../../helpers/location';
 
-const AddStore = ({data}) => {
+import { Context } from '../../context/ItemsContext';
+
+const AddStore = ({handleAdd}) => {
+    const [form, setForm] = useState({});
+    const [hide, setHide] = useState(true);
+    const [currentLocation, setCurrentLocation] = useState({longitude: 0, latitude: 0});
+
+    const {state} = useContext(Context);
+
+    const updateForm = ({name, value}) => {
+        let formCopy = form;
+
+        formCopy[name] = value;
+
+        setForm(formCopy);
+    }
+
+    const addStore = () => {
+
+        form.items = state;
+        form.coordinates = currentLocation;
+
+        handleAdd(form)
+    }
+
+    useEffect(() => {
+        // Update the document title using the browser API
+
+        const getLocation = async () => {
+
+          const location = await getLocationAsync();
+          setCurrentLocation(location);
+        }
+
+        getLocation();
+    },[])
+
     return <View style={styles.viewStyle}>
-        <FormInput 
-            label={'Store Name'}
-            dt={'storename'}
-        />
-        <FormInput 
-            label={'Location'}
-            dt= {'location'}
-        />
-        <Text style={styles.textStyle}>Add Items</Text>
+        {hide && 
+            <View>
+                <FormInput 
+                    label={'Store Name'}
+                    name={'storename'}
+                    update={updateForm}
+                />
+                <FormInput 
+                    label={'Location'}
+                    name={'location'}
+                    update={updateForm}
+                />
+                <FormInput 
+                    label={'Queue size'}
+                    name={'queue'}
+                    update={updateForm}
+                />
+            </View>
+        }
+        <Items />
+        <Button 
+            block
+            onPress={addStore}
+            title="Add Store"
+            style={styles.buttonStyle}
+        >
+          <Text>Add Store</Text>
+        </Button>
     </View>
 }
 
 const styles = StyleSheet.create({
     viewStyle: {
-        padding: 10
+        padding: 20
     },
     textStyle: {
         paddingLeft: 10,
         paddingTop: 10
+    },
+    buttonStyle: {
+        marginTop: 10
     }
 
 })

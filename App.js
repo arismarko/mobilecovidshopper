@@ -4,7 +4,9 @@ import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from "./src/screens/HomeScreen";
 import AlertScreen from "./src/screens/AlertScreen";
 
-import { Provider } from './src/context/StoreContext';
+import { Provider as StoresProvider } from './src/context/StoreContext';
+import { Provider as ItemsProvider} from './src/context/ItemsContext';
+import { Item } from 'native-base';
 
 const navigator = createStackNavigator(
   {
@@ -21,10 +23,13 @@ const navigator = createStackNavigator(
 
 const App = createAppContainer(navigator);
 
+
 export default () => {
   return (
-    <Provider>
-      <App />
-    </Provider>
-  );
+    <StoresProvider>
+      <ItemsProvider>
+        <App />
+      </ItemsProvider>
+    </StoresProvider>
+  )
 };
