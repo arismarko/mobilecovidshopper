@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 
-const FormInput = ({label, dt, update}) => {
-    const [name, setName] = useState('')
+const FormInput = ({label, name, update}) => {
+    const [value, setValue] = useState('');
 
-    const setSearch = (newValue) => {   
-        setName(newValue);
+    const setInput = (newValue) => {   
+        setValue(newValue);
 
-        update(newValue);
+        update({name:name, value: newValue});
     }
 
     return (
@@ -17,8 +17,8 @@ const FormInput = ({label, dt, update}) => {
             style={styles.input}
             autoCapitalize='none' 
             autoCorrect={false}
-            value={name}
-            onChangeText={(newValue) => setSearch(newValue)}
+            value={value}
+            onChangeText={(newValue) => setInput(newValue)}
            />
            <Text>Validation</Text>
         </View>
