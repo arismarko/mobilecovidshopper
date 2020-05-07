@@ -65,8 +65,8 @@ export default ({stores}) => {
        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
        style={styles.map}
        region={{
-         latitude: currentLocation.latitude,
-         longitude: currentLocation.longitude,
+         latitude: Number(currentLocation.latitude),
+         longitude: Number(currentLocation.longitude),
          latitudeDelta: 0.015,
          longitudeDelta: 0.0121,
        }}

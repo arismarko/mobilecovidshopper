@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import { Item, Input, Label } from 'native-base';
 
 const Search = ({search}) => {
     const [name, setName] = useState('')
@@ -12,15 +13,18 @@ const Search = ({search}) => {
 
     return (
         <View style={styles.viewStyle}>
-           <Text style={styles.label}>Search</Text>
-           <TextInput 
-            style={styles.input}
-            autoCapitalize='none' 
-            autoCorrect={false}
-            value={name}
-            onChangeText={(newValue) => setSearch(newValue)}
-           />
-           <Text>You searched for {name}</Text>
+           <Item fixedLabel>
+              <Label>Search</Label>
+              <Input 
+                style={styles.input}
+                autoCapitalize='none' 
+                autoCorrect={false}
+                value={name}
+                onChangeText={(newValue) => setSearch(newValue)}
+             />
+            </Item>
+          
+           {name!=='' && <Text>You searched for {name}</Text>}
         </View>
     )
 }
@@ -35,11 +39,6 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         marginLeft: 20,
         marginRight: 20
-    },
-    input: {
-        borderColor: 'black',
-        borderWidth: 1,
-        padding: 5
     }
 })
 

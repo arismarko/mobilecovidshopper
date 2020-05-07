@@ -2,17 +2,9 @@ import React, { useReducer } from 'react';
 
 import createDataContext from './createDataContext';
 
-import axios from 'axios';
+import storesReducer from './reducers/stores.reducer';
 
-const storesReducer = (state, action) => {
-    switch (action.type) {
-        case 'get_stores':
-            console.log(action.payload);
-            return action.payload
-        default:
-            return state;
-    }
-}
+import axios from 'axios';
 
 const getStores = dispatch => {
     return async (searchTerm) => {
@@ -32,8 +24,6 @@ const getStores = dispatch => {
 const addStore = dispatch => {
     return async (item) => {
         const response = await jsonServer.post(`/stores`);
-
-        console.log(response);
 
         dispatch({type: 'add_store', payload: response.data});
     }
