@@ -8,10 +8,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-You will need to have node into your machine, as well an IDE for example Visual Studio Code
+You will need to have:
 
 ```
-Give examples
+ Node into your machine, as well an IDE for example Visual Studio Code
 ```
 
 ### Installing
