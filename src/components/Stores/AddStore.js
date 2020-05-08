@@ -27,7 +27,7 @@ const AddStore = ({handleAdd}) => {
     const addStore = () => {
 
         form.items = state;
-        form.coordinates = currentLocation;
+        form.coordinates = `${currentLocation.latitude}, ${currentLocation.longitude}`;
 
         handleAdd(form)
     }

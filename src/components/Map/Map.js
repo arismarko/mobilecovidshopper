@@ -32,20 +32,19 @@ export default ({stores, updateCurrentLoc }) => {
 
         getLocation();
 
-        if (stores.length > 0) {
-          
-          const markers = stores.map(store => {
-            return {
-              latitude: store.coordinates.split(',')[0],
-              longitude: store.coordinates.split(',')[1],
-              title: store.storename,
-              left: store.Item[0].number
-            }
-          })
-        
-          setMarkers(markers);
-        }
+        const markers = stores.map(store => {
+          return {
+            latitude: Number(store.coordinates.split(',')[0]),
+            longitude: Number(store.coordinates.split(',')[1]),
+            title: store.storename,
+            left: store.Item[0].number
+          }
+        },[stores])
 
+        console.log(stores);
+
+        setMarkers(markers);
+        
     }, [stores]);
 
    return (
@@ -60,13 +59,13 @@ export default ({stores, updateCurrentLoc }) => {
          longitudeDelta: 0.0121,
        }}
      >
-      { stores.length > 0 && markers.map(({longitude, latitude, title, left}, index) => {
+      {markers.map(({longitude, latitude, title, left}, index) => {
           return (
             <Marker
               key={index}
-              coordinate={{ latitude, longitude }}
+              coordinate={{  longitude, latitude }}
               title={title}
-              description={left}
+              description={`${left} items left`}
             />
           )
         })}
