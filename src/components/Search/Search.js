@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Item, Input, Label } from 'native-base';
+import { View, StyleSheet } from 'react-native';
+import { Container, Header, Item, Input, Icon, Button, Text } from 'native-base';
 
 const Search = ({search}) => {
     const [name, setName] = useState('')
@@ -12,20 +12,21 @@ const Search = ({search}) => {
     }
 
     return (
-        <View style={styles.viewStyle}>
-           <Item fixedLabel>
-              <Label>Search</Label>
-              <Input 
-                style={styles.input}
-                autoCapitalize='none' 
-                autoCorrect={false}
-                value={name}
-                onChangeText={(newValue) => setSearch(newValue)}
-             />
-            </Item>
-          
-           {name!=='' && <Text>You searched for {name}</Text>}
-        </View>
+      <Header searchBar rounded>
+        <Item>
+          <Icon name="ios-search" />
+          <Input 
+            placeholder="Search" 
+            autoCapitalize='none' 
+            autoCorrect={false}
+            value={name}
+            onChangeText={(newValue) => setSearch(newValue)}
+          />
+        </Item>
+        <Button transparent>
+          <Text>Search</Text>
+        </Button>
+      </Header>
     )
 }
 
