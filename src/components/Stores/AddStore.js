@@ -21,14 +21,16 @@ const AddStore = ({handleAdd}) => {
 
         formCopy[name] = value;
 
+        console.log("Hello");
+
         setForm(formCopy);
     }
 
     const addStore = () => {
-
+        console.log("Hello1");
         form.items = state;
         form.coordinates = `${currentLocation.latitude}, ${currentLocation.longitude}`;
-
+       
         handleAdd(form)
     }
 
@@ -78,7 +80,9 @@ const AddStore = ({handleAdd}) => {
 
 const styles = StyleSheet.create({
     viewStyle: {
-        padding: 20
+        padding: 20,
+        height: 600
+        
     },
     textStyle: {
         paddingLeft: 10,

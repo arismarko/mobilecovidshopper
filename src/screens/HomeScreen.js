@@ -3,26 +3,11 @@ import {StyleSheet, View } from "react-native";
 
 import Nav from '../components/Nav/Nav';
 import Stores from '../components/Stores/Stores';
-import Header from '../components/Header/Header';
 import Search from '../components/Search/Search';
 import Map from '../components/Map/Map';
+import Layout from '../components/Layout/Layout';
 
 import { Context } from '../context/StoreContext';
-
-const list = [
-  {
-    name: 'Find',
-    subtitle: 'Missing Items'
-  },
-  {
-    name: 'Alert',
-    subtitle: 'The community'
-  },
-  {
-    name: 'Get notified',
-    subtitle: 'For items'
-  },
-]
 
 const HomeScreen = props => {
   const { state, getStores } = useContext(Context);
@@ -31,16 +16,11 @@ const HomeScreen = props => {
     getStores(search);
   }
 
-  return <View style={styles.viewStyle}>
-    <Header 
-      title="CovidShopper" 
-      imageSource={require('../../assets/logo.jpg')}
-    />
-    <Nav items={list} navigation={props.navigation} />
-    <Search search={searchStores} />
-    {/* <Stores  data={state} /> */}
-    <Map stores={state} updateCurrentLoc={(location) => setCurrentLoc(location)} />
-  </View>
+  return <Layout navigation={props.navigation}>
+            <Search search={searchStores} />
+            <Map stores={state} updateCurrentLoc={(location) => setCurrentLoc(location)} />
+            <Stores  data={state} />
+    </Layout>
 };
 
 const styles = StyleSheet.create({

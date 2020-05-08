@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
  container: {
    height: 400,
    width: 400,
-   marginLeft: 20,
-   paddingRight: 10
+   marginLeft: 5,
+   paddingRight: 20
  },
  map: {
    ...StyleSheet.absoluteFillObject,
@@ -40,8 +40,6 @@ export default ({stores, updateCurrentLoc }) => {
             left: store.Item[0].number
           }
         },[stores])
-
-        console.log(stores);
 
         setMarkers(markers);
         
