@@ -1,4 +1,9 @@
-const pointsReducer = (state, action) => {
+const INITIAL_STATE = {
+    points: [],
+    selected_point: null,
+}
+
+const pointsReducer = (state=INITIAL_STATE, action) => {
     switch (action.type) {
         case 'get_points':
             return action.payload
@@ -6,3 +11,5 @@ const pointsReducer = (state, action) => {
             return state;
     }
 }
+
+export default pointsReducer;

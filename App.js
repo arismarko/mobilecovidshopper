@@ -6,7 +6,7 @@ import AlertScreen from "./src/screens/AlertScreen";
 
 import { Provider as StoresProvider } from './src/context/StoreContext';
 import { Provider as ItemsProvider} from './src/context/ItemsContext';
-import { Item } from 'native-base';
+import { Provider as PointsProvider} from './src/context/PointsContext';
 import StoreFinderScreen from './src/screens/StoreFinderScreen';
 
 const navigator = createStackNavigator(
@@ -30,7 +30,9 @@ export default () => {
   return (
     <StoresProvider>
       <ItemsProvider>
-        <App />
+        <PointsProvider>
+         <App />
+        </PointsProvider>
       </ItemsProvider>
     </StoresProvider>
   )

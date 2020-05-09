@@ -1,7 +1,10 @@
 import React, { useReducer } from 'react';
+
 import createDataContext from './createDataContext';
 
 import pointsReducer from './reducers/points.reducer';
+
+import axios from 'axios';
 
 const getPoints = dispatch => {
     return async () => {
@@ -16,10 +19,6 @@ const getPoints = dispatch => {
 
 export const { Context, Provider } = createDataContext(
     pointsReducer, 
-    { getPoints, },
+    { getPoints },
     []
 );
-
-//
-
-
