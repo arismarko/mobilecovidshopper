@@ -10,9 +10,12 @@ const Search = ({search}) => {
 
         search(newValue);
     }
-
     return (
-      <Header searchBar rounded>
+      <Header 
+        searchBar 
+        rounded
+        style={styles.inputStyle}
+      >
         <Item>
           <Icon name="ios-search" />
           <Input 
@@ -23,23 +26,13 @@ const Search = ({search}) => {
             onChangeText={(newValue) => setSearch(newValue)}
           />
         </Item>
-        <Button transparent>
-          <Text>Search</Text>
-        </Button>
       </Header>
     )
 }
 
 const styles = StyleSheet.create({
-    label: {
-        marginTop: 5,
-        marginBottom: 5
-    },
-    viewStyle: {
-        marginTop: 40,
-        marginBottom: 20,
-        marginLeft: 20,
-        marginRight: 20
+    inputStyle: {
+        padding: 10
     }
 })
 

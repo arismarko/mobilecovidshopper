@@ -21,13 +21,10 @@ const AddStore = ({handleAdd}) => {
 
         formCopy[name] = value;
 
-        console.log("Hello");
-
         setForm(formCopy);
     }
 
     const addStore = () => {
-        console.log("Hello1");
         form.items = state;
         form.coordinates = `${currentLocation.latitude}, ${currentLocation.longitude}`;
        
@@ -49,6 +46,7 @@ const AddStore = ({handleAdd}) => {
     return <View style={styles.viewStyle}>
         {hide && 
             <View>
+                <Text>Help others find a store with missing Items</Text>
                 <FormInput 
                     label={'Store Name'}
                     name={'storename'}

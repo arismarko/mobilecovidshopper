@@ -11,8 +11,6 @@ const getStores = dispatch => {
         const today = new Date();
         const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
-        console.log(date);
-
         const response = await axios.get(`https://ariskorona.herokuapp.com/api/stores?missing=${searchTerm}&date=${date}`)
         .catch(error => console.log(error));
 
@@ -22,7 +20,6 @@ const getStores = dispatch => {
 
 const addStore = dispatch => {
     return async (store) => {
-        console.log(store);
         const response = await axios.post(`https://ariskorona.herokuapp.com/api/stores`, store).
         catch(error => console.log(error));
         
