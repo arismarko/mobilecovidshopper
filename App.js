@@ -7,11 +7,13 @@ import AlertScreen from "./src/screens/AlertScreen";
 import { Provider as StoresProvider } from './src/context/StoreContext';
 import { Provider as ItemsProvider} from './src/context/ItemsContext';
 import { Item } from 'native-base';
+import StoreFinderScreen from './src/screens/StoreFinderScreen';
 
 const navigator = createStackNavigator(
   {
     Find: HomeScreen,
-    Alert: AlertScreen 
+    Alert: AlertScreen,
+    Points: StoreFinderScreen
   },
   {
     initialRouteName: "Find",

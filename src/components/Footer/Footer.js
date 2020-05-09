@@ -12,8 +12,8 @@ const Footr = ({navigation}) => {
                 <Button onPress={() => {navigation.navigate(`Alert`)}}>
                     <Text>Alert</Text>
                 </Button>
-                <Button>
-                    <Text>Get Notified</Text>
+                <Button onPress={() => {navigation.navigate(`Points`)}}>
+                    <Text>Points</Text>
                 </Button>
             </FooterTab>
       </Footer>
