@@ -24,11 +24,23 @@ const HomeScreen = props => {
         title: store.storename,
         left: store.Item[0].number
       }
-    });
+
+
+    },);
 
     setStores(stores);
+    
+  
 
   }, [state])
+
+
+  useEffect(() => {
+    return () => {
+      console.log('clared');
+      setStores([])
+    };
+  },[])
 
   return  <Layout navigation={props.navigation}>
             <Search search={searchStores} placeholder="Search for an item, e.g bread" />

@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { View , Text, StyleSheet} from 'react-native';
+import { View , Text, StyleSheet, ScrollView} from 'react-native';
 import { List, ListItem, Thumbnail, Left, Body} from 'native-base';
 
 import { Context as PointsContext} from '../../context/PointsContext';
@@ -17,7 +17,7 @@ const SelectPoints = ({value, update }) => {
     }
 
     return (
-        <View>
+        <ScrollView>
           {
             state && 
             <Text style={styles.text}>Select the store you are in now</Text>
@@ -42,7 +42,7 @@ const SelectPoints = ({value, update }) => {
               ))
           }
           </List>
-        </View>
+        </ScrollView>
     )
 }
 

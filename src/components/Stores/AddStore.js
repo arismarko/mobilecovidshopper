@@ -31,8 +31,12 @@ const AddStore = ({handleAdd}) => {
 
     const addStore = () => {
         form.items = state;
-        form.coordinates = `${currentLocation.latitude}, ${currentLocation.longitude}`;
-       
+
+        form.storename = selectedStore.name;
+        form.location = selectedStore.location.address1 + selectedStore.location.address2;
+        form.coordinates = `${selectedStore.coordinates.latitude}, ${selectedStore.coordinates.longitude}`;
+        form.amount = form.queue;
+
         handleAdd(form)
     }
 
@@ -56,7 +60,7 @@ const AddStore = ({handleAdd}) => {
         {hide && 
             <View>
                 <Text>Tell us about the store your are in now</Text>
-                <Text style={{marginTop: 20}}>Selected Store</Text>
+                <Text style={{marginTop: 20, fontWeight: 'bold'}}>Select a Store</Text>
                 {!selectedStore &&
                     <View>
                         <Search 
@@ -78,7 +82,7 @@ const AddStore = ({handleAdd}) => {
                         remove={() => setSelectedStore(null)}
                     />
                 }
-                <Text style={{marginTop: 20}}>What is the Queue like?</Text>
+                <Text  style={{marginTop: 20, fontWeight: 'bold'} }>What is the Queue like?</Text>
                 <FormInput 
                     label={'Queue size'}
                     name={'queue'}
@@ -101,7 +105,7 @@ const AddStore = ({handleAdd}) => {
 const styles = StyleSheet.create({
     viewStyle: {
         padding: 20,
-        height: 600
+        height: 800
         
     },
     textStyle: {

@@ -24,14 +24,14 @@ const AddItems = ({toggle}) => {
 
     return (
         <View style={styles.viewStyle}>
-          <Text style={styles.labelStyle}> Add Item </Text>
+          <Text style={styles.labelStyle}> Add an missing Item </Text>
            <SelectBox 
                 label={'Item'} 
                 name={'item'}
                 update={updateForm}
             />
             <FormInput 
-                label={'Number'}
+                label={'Amount'}
                 name={'number'}
                 update={updateForm}
             />
@@ -79,7 +79,8 @@ const styles = StyleSheet.create({
     labelStyle: {
         paddingTop: 20,
         paddingLeft: 0,
-        fontSize: 20
+        fontSize: 20,
+        fontWeight: 'bold'
     },
 })
 

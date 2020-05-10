@@ -13,7 +13,7 @@ const Items = () => {
 
     return (
         <View style = { styles.viewStyle } > 
-            <Text>Add Items that you found on the store, e.g 200 Masks</Text>
+            <Text style={{fontWeight: 'bold'}}>Help others find missing items</Text>
             { toggleAdd && state.length === 0 && <Text style = { styles.labelStyle } >No Items Added</Text> }
             
             { toggleAdd && 
@@ -24,7 +24,7 @@ const Items = () => {
                         title=""
                         accessibilityLabel="Add an Item that you found on the store"
                     >
-                        <Text> Add an Item </Text>
+                        <Text> Add a Missing Item </Text>
                     </Button>
                    <ScrollView>
                     {

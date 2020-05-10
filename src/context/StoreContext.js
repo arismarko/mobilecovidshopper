@@ -20,6 +20,7 @@ const getStores = dispatch => {
 
 const addStore = dispatch => {
     return async (store) => {
+
         const response = await axios.post(`https://ariskorona.herokuapp.com/api/stores`, store).
         catch(error => console.log(error));
         
@@ -29,6 +30,6 @@ const addStore = dispatch => {
 
 export const { Context, Provider } = createDataContext(
     storesReducer, 
-    { getStores, addStore },
+    { getStores, addStore},
     []
 );
