@@ -2,44 +2,39 @@ import React, {useState} from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Container, Header, Item, Input, Icon, Button, Text } from 'native-base';
 
-const Search = ({search}) => {
+const Search = ({search, placeholder}) => {
     const [name, setName] = useState('')
 
     const setSearch = (newValue) => {   
         setName(newValue);
-
-        search(newValue);
     }
 
     return (
-      <Header searchBar rounded>
+      <Header 
+        searchBar 
+        rounded
+        style={styles.inputStyle}
+      >
         <Item>
           <Icon name="ios-search" />
           <Input 
-            placeholder="Search" 
+            placeholder={placeholder}
             autoCapitalize='none' 
             autoCorrect={false}
             value={name}
             onChangeText={(newValue) => setSearch(newValue)}
           />
         </Item>
-        <Button transparent>
-          <Text>Search</Text>
+        <Button transparent onPress={() => search(name)}>
+            <Text>Search</Text>
         </Button>
       </Header>
     )
 }
 
 const styles = StyleSheet.create({
-    label: {
-        marginTop: 5,
-        marginBottom: 5
-    },
-    viewStyle: {
-        marginTop: 40,
-        marginBottom: 20,
-        marginLeft: 20,
-        marginRight: 20
+    inputStyle: {
+        padding: 10
     }
 })
 

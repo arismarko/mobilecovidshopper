@@ -5,7 +5,7 @@ const Header = ({title, imageSource, score}) => {
     return (
         <View style={styles.viewStyle}>
             <Image source={imageSource} style={styles.imageStyle} />
-            <Text style={styles.textStyle}>{title}</Text>
+            <Text style={styles.textStyle}>{title} // Community Helper </Text>
         </View>
     )
 }
