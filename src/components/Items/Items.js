@@ -13,7 +13,7 @@ const Items = () => {
 
     return (
         <View style = { styles.viewStyle } > 
-            <Text>Add Items that you found on the store</Text>
+            <Text>Add Items that you found on the store, e.g 200 Masks</Text>
             { toggleAdd && state.length === 0 && <Text style = { styles.labelStyle } >No Items Added</Text> }
             
             { toggleAdd && 

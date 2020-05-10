@@ -6,6 +6,9 @@ const Footr = ({navigation}) => {
     return (
         <Footer>
             <FooterTab>
+                <Button onPress={() => {navigation.navigate(`Home`)}}>
+                    <Text>Home</Text>
+                </Button >
                 <Button onPress={() => {navigation.navigate(`Find`)}}>
                     <Text>Find</Text>
                 </Button >
@@ -13,7 +16,7 @@ const Footr = ({navigation}) => {
                     <Text>Alert</Text>
                 </Button>
                 <Button onPress={() => {navigation.navigate(`Points`)}}>
-                    <Text>Points</Text>
+                    <Text>Stores</Text>
                 </Button>
             </FooterTab>
       </Footer>
