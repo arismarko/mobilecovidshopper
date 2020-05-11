@@ -7,7 +7,7 @@ import { getLocationAsync, getGeocodeAsync } from '../../helpers/location';
 
 const styles = StyleSheet.create({
  container: {
-   height: 400,
+   height: 300,
    width: 400,
    marginLeft: 5,
    paddingRight: 20

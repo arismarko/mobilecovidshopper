@@ -17,7 +17,7 @@ const SelectBox = ({label, name, update}) => {
                 <Picker
                     mode="dropdown"
                     iosIcon={<Icon name="arrow-down" />}
-                    style={{ width: undefined }}
+                    style={{ marginLeft: 60, width: 250}}
                     placeholder="Select your Item"
                     placeholderStyle={{ color: "#bfc6ea" }}
                     placeholderIconColor="#007aff"
@@ -39,7 +39,7 @@ const SelectBox = ({label, name, update}) => {
 const styles = StyleSheet.create({
     viewStyle: {
         paddingBottom: 10,
-        paddingTop: 10
+        paddingTop: 10,
     },
 
 })

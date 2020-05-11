@@ -7,7 +7,9 @@ import { View, StyleSheet, Button } from 'react-native';
 const SelectedStore = ({store, remove}) => {
     return (
         <View styles={style.view}>
-            <ListItem avatar>
+            <ListItem avatar
+                noBorder
+            >
                 <Left>
                     <Thumbnail square source={{ uri: store.image_url }} />
                 </Left>

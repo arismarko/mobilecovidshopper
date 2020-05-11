@@ -59,7 +59,6 @@ const AddItems = ({toggle}) => {
 const styles = StyleSheet.create({
     viewStyle: {
             backgroundColor: "white",
-            borderRadius: 20,
             position: 'relative',
             marginTop: 180,
             height: 700,
