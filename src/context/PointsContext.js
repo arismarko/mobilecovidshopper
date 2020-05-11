@@ -17,13 +17,15 @@ const getPoints = dispatch => {
         }
 }
 
-const initialise = dispatch => {
-    dispatch({type: 'initialise', payload: []});
+const initial = dispatch => {
+    return async (store) => {
+        dispatch({type: 'initial', payload: []});
+    }
 }
 
 export const { Context, Provider } = createDataContext(
     pointsReducer, 
-    { getPoints},
+    { getPoints, initial },
     []
 );
 

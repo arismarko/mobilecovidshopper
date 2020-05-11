@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import {StyleSheet, SafeAreaView } from "react-native";
+import {StyleSheet, SafeAreaView, ScrollView } from "react-native";
 
 import Layout from '../components/Layout/Layout';
 import Points from '../components/Points/Points';
@@ -9,7 +9,7 @@ import Map from '../components/Map/Map';
 import { Context } from '../context/PointsContext';  
 
 const StoreFinderScreen = props => {
-    const { state, getPoints } = useContext(Context);
+    const { state, getPoints, initial } = useContext(Context);
     const [stores, setStores] = useState([]);
   
     const searchStores = (search) => {
@@ -30,13 +30,21 @@ const StoreFinderScreen = props => {
         }, [state]);
     
         setStores(stores);
-    
+
     }, [state])
 
-    return <Layout navigation={props.navigation}  currentScreen={'Stores'}>
+    useEffect(() => {
+      return () => {
+        initial();
+      };
+    }, [])
+
+    return  <Layout navigation={props.navigation}  currentScreen={'Stores'}>
                 <Search search={searchStores} placeholder="Search for a supermarket, e.g tesco" />
                 <Map  stores={stores} />
-                <Points points={stores} />
+                <ScrollView>
+                  <Points points={stores} />
+                </ScrollView>
               </Layout>
 };
 

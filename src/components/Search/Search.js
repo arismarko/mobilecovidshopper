@@ -12,7 +12,6 @@ const Search = ({search, placeholder}) => {
     return (
       <Header 
         searchBar 
-        rounded
         style={styles.inputStyle}
       >
         <Item>
@@ -34,7 +33,8 @@ const Search = ({search, placeholder}) => {
 
 const styles = StyleSheet.create({
     inputStyle: {
-        padding: 10
+        padding: 20,
+        marginLeft: 10
     }
 })
 

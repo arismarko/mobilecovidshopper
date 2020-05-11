@@ -28,8 +28,14 @@ const addStore = dispatch => {
     }
 }
 
+const initial = dispatch => {
+    return async (store) => {
+        dispatch({type: 'initial', payload: []});
+    }
+}
+
 export const { Context, Provider } = createDataContext(
     storesReducer, 
-    { getStores, addStore},
+    { getStores, addStore, initial},
     []
 );

@@ -9,7 +9,7 @@ import Layout from '../components/Layout/Layout';
 import { Context } from '../context/StoreContext';
 
 const HomeScreen = props => {
-  const { state, getStores } = useContext(Context);
+  const { state, getStores, initial} = useContext(Context);
   const [ stores, setStores] = useState([])
 
   const searchStores = (search) => {
@@ -23,27 +23,24 @@ const HomeScreen = props => {
         longitude: Number(store.coordinates.split(',')[1]),
         title: store.storename,
         left: store.Item[0].number,
-        amount: store.amount
+        amount: store.amount,
+        address: store.location
       }
-
-
     },);
 
     setStores(stores);
-
-  }, [state])
-
+  },[state])
 
   useEffect(() => {
     return () => {
-      setStores([])
+     initial()
     };
   },[])
 
   return  <Layout navigation={props.navigation} currentScreen={'Find'}>
             <Search search={searchStores} placeholder="Search for an item, e.g bread" />
             <Map stores={stores} />
-            <Stores  data={state} />
+            <Stores  stores={stores} />
           </Layout>
 
 };

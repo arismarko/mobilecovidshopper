@@ -14,11 +14,14 @@ const styles = StyleSheet.create({
     viewStyle: {
         flexDirection: 'row',
         backgroundColor: 'white',
-        padding: 20
+        padding: 10,
+        marginTop: 10,
+        marginLeft: 10,
+        height: 70
     },
     imageStyle: {
-        width: 50,
-        height: 50
+        width: 40,
+        height: 40
     },
     textStyle: {
         fontSize: 17,

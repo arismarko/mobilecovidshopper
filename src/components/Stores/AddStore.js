@@ -18,7 +18,7 @@ const AddStore = ({handleAdd}) => {
         storename: '',
         location: '',
         coordinates: '',
-        amount: ''
+        queue: ''
     });
     const [error, setError] = useState(false)
 
@@ -40,6 +40,12 @@ const AddStore = ({handleAdd}) => {
     const addStore = () => {
         let errorFound = false;
 
+        form.items =  state;
+        form.storename = selectedStore.name;
+        form.location = selectedStore.location.address1 + selectedStore.location.address2;
+        form.coordinates = `${selectedStore.coordinates.latitude}, ${selectedStore.coordinates.longitude}`;
+        form.amount = form.queue;
+
         if (form.storename === '') {
             setError(true);
             errorFound = true;
@@ -55,15 +61,11 @@ const AddStore = ({handleAdd}) => {
             errorFound = true;
         }
         
-        if ( !errorFound) {
-            form.items = state;
-            form.storename = selectedStore.name;
-            form.location = selectedStore.location.address1 + selectedStore.location.address2;
-            form.coordinates = `${selectedStore.coordinates.latitude}, ${selectedStore.coordinates.longitude}`;
-            form.amount = form.queue;
-        }
+        if ( errorFound === false) {
+            handleAdd(form)
+            console.log('Store added')            
 
-        handleAdd(form)
+        }
     }
 
     const getStoreName = (value) => {
@@ -116,7 +118,7 @@ const AddStore = ({handleAdd}) => {
                     name={'queue'}
                     update={updateForm}
                 />
-                {form.amount === '' && error  && <Text style={styles.error}> No Amount selected </Text> }
+                {form.queue === '' && error  && <Text style={styles.error}> {form.amount} No Amount selected </Text> }
             </View>
         }
         
