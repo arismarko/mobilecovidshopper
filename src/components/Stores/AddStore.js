@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Button, Text, Content } from 'native-base';
-import {View, StyleSheet } from 'react-native';
+import {View, StyleSheet, Header } from 'react-native';
 
 import FormInput from '../FormInput/FormInput';
 import Items from '../Items/Items';
@@ -60,19 +60,19 @@ const AddStore = ({handleAdd}) => {
         {hide && 
             <View>
                 <Text>Tell us about the store your are in now</Text>
-                <Text style={{marginTop: 20, fontWeight: 'bold'}}>Select a Store</Text>
+                <Text style={{marginTop: 20, fontWeight: 'bold'}}>1. Select a Store</Text>
                 {!selectedStore &&
-                    <View>
-                        <Search 
-                            search={getStoreName} 
-                            placeholder="Locate your store" 
-                        />
-                        {   storeName !='' &&
-                            <SelectPoints 
-                                value={storeName}
-                                update={(store) => setSelectedStore(store)}
+                     <View>
+                            <Search 
+                                search={getStoreName} 
+                                placeholder="Locate your store" 
                             />
-                        }
+                            {   storeName !='' &&
+                                <SelectPoints 
+                                    value={storeName}
+                                    update={(store) => setSelectedStore(store)}
+                                />
+                            }
                     </View>
                 }
 
@@ -82,9 +82,9 @@ const AddStore = ({handleAdd}) => {
                         remove={() => setSelectedStore(null)}
                     />
                 }
-                <Text  style={{marginTop: 20, fontWeight: 'bold'} }>What is the Queue like?</Text>
+                <Text  style={{marginTop: 20, fontWeight: 'bold'} }>2. Are there people queing at the store?</Text>
                 <FormInput 
-                    label={'Queue size'}
+                    label={'No of people'}
                     name={'queue'}
                     update={updateForm}
                 />
@@ -105,7 +105,7 @@ const AddStore = ({handleAdd}) => {
 const styles = StyleSheet.create({
     viewStyle: {
         padding: 20,
-        height: 800
+        height: 600
         
     },
     textStyle: {
@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
         paddingTop: 10
     },
     buttonStyle: {
-        marginTop: 10
     }
 
 })

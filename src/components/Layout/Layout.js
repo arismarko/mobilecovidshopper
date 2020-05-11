@@ -9,7 +9,7 @@ import { Container, Content} from 'native-base';
 
 import {StyleSheet, View, Text} from "react-native";
 
-const Layout = ({ navigation, children }) => {
+const Layout = ({ navigation, children, currentScreen }) => {
 
     return (
             <Container>
@@ -25,6 +25,7 @@ const Layout = ({ navigation, children }) => {
                 <Content />
                 <Nav 
                     navigation={navigation} 
+                    currentScreen={currentScreen}
                 /> 
             </Container>
     )
@@ -33,7 +34,8 @@ const Layout = ({ navigation, children }) => {
 
 const styles = StyleSheet.create({
     container: {
-       height: 600
+       height: 550,
+       backgroundColor: 'white'
     }
 })
 

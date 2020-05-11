@@ -9,7 +9,7 @@ import { Context } from '../context/StoreContext';
 const AlertScreen = props => {
     const { state, addStore } = useContext(Context);
 
-    return <Layout navigation={props.navigation}>
+    return <Layout navigation={props.navigation}  currentScreen={'Alert'}>
           <AddStore handleAdd={addStore} />
         </Layout>
 }

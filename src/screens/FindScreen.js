@@ -37,12 +37,11 @@ const HomeScreen = props => {
 
   useEffect(() => {
     return () => {
-      console.log('clared');
       setStores([])
     };
   },[])
 
-  return  <Layout navigation={props.navigation}>
+  return  <Layout navigation={props.navigation} currentScreen={'Find'}>
             <Search search={searchStores} placeholder="Search for an item, e.g bread" />
             <Map stores={stores} />
             <Stores  data={state} />
