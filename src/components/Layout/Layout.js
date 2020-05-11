@@ -34,7 +34,8 @@ const Layout = ({ navigation, children, currentScreen }) => {
 
 const styles = StyleSheet.create({
     container: {
-       height: 550
+       height: 550,
+       backgroundColor: 'white'
     }
 })
 
