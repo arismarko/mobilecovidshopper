@@ -67,13 +67,13 @@ export default ({stores }) => {
          longitudeDelta: deltas[1],
        }}
      >
-      {loading && markers.map(({longitude, latitude, title, left}, index) => {
+      {loading && markers.map(({longitude, latitude, title, left, amount}, index) => {
           return (
             <Marker
               key={index}
               coordinate={{  longitude, latitude }}
               title={title}
-              description={`${left} items left`}
+              description={`${left} items left & ${amount} queuing`}
             />
           )
       })}

@@ -13,7 +13,15 @@ import { getLocationAsync, getGeocodeAsync } from '../../helpers/location';
 import { Context } from '../../context/ItemsContext';
 
 const AddStore = ({handleAdd}) => {
-    const [form, setForm] = useState({});
+    const [form, setForm] = useState({
+        items: [],
+        storename: '',
+        location: '',
+        coordinates: '',
+        amount: ''
+    });
+    const [error, setError] = useState(false)
+
     const [hide, setHide] = useState(true);
     const [storeName, setStoreName] = useState('');
     const [selectedStore, setSelectedStore] = useState(null);
@@ -30,12 +38,30 @@ const AddStore = ({handleAdd}) => {
     }
 
     const addStore = () => {
-        form.items = state;
+        let errorFound = false;
 
-        form.storename = selectedStore.name;
-        form.location = selectedStore.location.address1 + selectedStore.location.address2;
-        form.coordinates = `${selectedStore.coordinates.latitude}, ${selectedStore.coordinates.longitude}`;
-        form.amount = form.queue;
+        if (form.storename === '') {
+            setError(true);
+            errorFound = true;
+        }
+
+        if (form.amount === '') { 
+            setError(true)
+            errorFound = true;
+        }
+
+        if (form.items.length === 0) {
+            setError(true)
+            errorFound = true;
+        }
+        
+        if ( !errorFound) {
+            form.items = state;
+            form.storename = selectedStore.name;
+            form.location = selectedStore.location.address1 + selectedStore.location.address2;
+            form.coordinates = `${selectedStore.coordinates.latitude}, ${selectedStore.coordinates.longitude}`;
+            form.amount = form.queue;
+        }
 
         handleAdd(form)
     }
@@ -73,6 +99,8 @@ const AddStore = ({handleAdd}) => {
                                     update={(store) => setSelectedStore(store)}
                                 />
                             }
+                            {form.storename === '' && error  && <Text style={styles.error}> No Store selected </Text> }
+
                     </View>
                 }
 
@@ -88,9 +116,12 @@ const AddStore = ({handleAdd}) => {
                     name={'queue'}
                     update={updateForm}
                 />
+                {form.amount === '' && error  && <Text style={styles.error}> No Amount selected </Text> }
             </View>
         }
+        
         <Items />
+    
         <Button 
             block
             onPress={addStore}
@@ -99,6 +130,7 @@ const AddStore = ({handleAdd}) => {
         >
           <Text>Add Store</Text>
         </Button>
+        
     </View>
 }
 
@@ -113,6 +145,9 @@ const styles = StyleSheet.create({
         paddingTop: 10
     },
     buttonStyle: {
+    },
+    error: {
+        color: 'red'
     }
 
 })

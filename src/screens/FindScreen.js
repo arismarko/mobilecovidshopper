@@ -22,15 +22,14 @@ const HomeScreen = props => {
         latitude: Number(store.coordinates.split(',')[0]),
         longitude: Number(store.coordinates.split(',')[1]),
         title: store.storename,
-        left: store.Item[0].number
+        left: store.Item[0].number,
+        amount: store.amount
       }
 
 
     },);
 
     setStores(stores);
-    
-  
 
   }, [state])
 

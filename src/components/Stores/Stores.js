@@ -8,8 +8,8 @@ const Stores = ({data}) => {
         data.map((l, i) => (
         <ListItem
             key={i}
-            title={l.storename}
-            subtitle={l.location}
+            title={`${l.storename} ${l.location}` }
+            subtitle={`Items ${l.Item[0].number} left,  ${l.amount} people queuing`}
             bottomDivider
         />
         ))

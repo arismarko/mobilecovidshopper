@@ -13,9 +13,8 @@ const Header = ({title, imageSource, score}) => {
 const styles = StyleSheet.create({
     viewStyle: {
         flexDirection: 'row',
-        margin: 20,
         backgroundColor: 'white',
-        width: 200
+        padding: 20
     },
     imageStyle: {
         width: 50,
