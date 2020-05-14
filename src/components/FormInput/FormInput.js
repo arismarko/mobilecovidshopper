@@ -31,9 +31,9 @@ const FormInput = ({label, name, update}) => {
 const styles = StyleSheet.create({
     viewStyle: {
         paddingBottom: 10,
-        paddingTop: 10
+        backgroundColor: 'white',
+        paddingLeft: 0
     },
-
 })
 
 export default FormInput;

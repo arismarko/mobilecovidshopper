@@ -88,12 +88,14 @@ const AddStore = ({handleAdd}) => {
         {hide && 
             <View>
                 <Text>Tell us about the store your are in now</Text>
-                <Text style={{marginTop: 20, fontWeight: 'bold'}}>1. Select a Store</Text>
-                {!selectedStore &&
-                     <View>
+
+                <View style={{backgroundColor: 'white', padding: 10, paddingTop: 0, marginTop: 10}}>
+                    <Text style={{paddingTop: 10, fontWeight: 'bold'}}>Select a Store</Text>
+                    {!selectedStore &&
+                     <View style={{marginTop: 10}}>
                             <Search 
                                 search={getStoreName} 
-                                placeholder="Locate your store" 
+                                placeholder="Type the store name " 
                             />
                             {   storeName !='' &&
                                 <SelectPoints 
@@ -104,25 +106,31 @@ const AddStore = ({handleAdd}) => {
                             {form.storename === '' && error  && <Text style={styles.error}> No Store selected </Text> }
 
                     </View>
-                }
+                    }
 
-                {selectedStore &&
-                    <SelectedStoreView 
-                        store={selectedStore}
-                        remove={() => setSelectedStore(null)}
+                    {selectedStore &&
+                        <SelectedStoreView 
+                            store={selectedStore}
+                            remove={() => setSelectedStore(null)}
+                        />
+                    }
+                </View>
+
+                <View style={{backgroundColor: 'white', padding: 10, paddingTop: 0, marginTop: 10}}>
+                    <Text  style={{marginTop: 10, fontWeight: 'bold', marginBottom: 10} }>Are there people queing at the store?</Text>
+                    <FormInput 
+                        label={'No of people'}
+                        name={'queue'}
+                        update={updateForm}
                     />
-                }
-                <Text  style={{marginTop: 20, fontWeight: 'bold'} }>2. Are there people queing at the store?</Text>
-                <FormInput 
-                    label={'No of people'}
-                    name={'queue'}
-                    update={updateForm}
-                />
-                {form.queue === '' && error  && <Text style={styles.error}> {form.amount} No Amount selected </Text> }
+                    {form.queue === '' && error  && <Text style={styles.error}> {form.amount} No Amount selected </Text> }
+                </View>
             </View>
         }
         
-        <Items />
+        <View style={{backgroundColor: 'white', padding: 10,  paddingTop: 0, marginTop: 10, marginBottom: 10}}>
+         <Items />
+        </View>
     
         <Button 
             block
@@ -138,9 +146,9 @@ const AddStore = ({handleAdd}) => {
 
 const styles = StyleSheet.create({
     viewStyle: {
-        padding: 20,
-        height: 600
-        
+        padding: 10,
+        height: 600,
+        backgroundColor: '#f9f9f9'  
     },
     textStyle: {
         paddingLeft: 10,

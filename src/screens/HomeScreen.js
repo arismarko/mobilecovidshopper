@@ -7,7 +7,7 @@ import SquareLinks from '../components/SquareLinks/SquareLinks';
 
 const HomeScreen = (props) => {
     return (
-        <View >
+        <View style={{backgroundColor: 'white'}}>
             <Header 
                 title="CovidShopper" 
                 imageSource={require('../../assets/logo.jpg')}

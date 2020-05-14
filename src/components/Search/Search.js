@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Container, Header, Item, Input, Icon, Button, Text } from 'native-base';
+import { StyleSheet } from 'react-native';
+import { Header, Item, Input, Icon, Button, Text } from 'native-base';
 
 const Search = ({search, placeholder}) => {
     const [name, setName] = useState('')
@@ -14,14 +14,15 @@ const Search = ({search, placeholder}) => {
         searchBar 
         style={styles.inputStyle}
       >
-        <Item>
-          <Icon name="ios-search" />
+        <Item style={{backgroundColor: 'white', borderColor: 'white'}} >
+          <Icon name="ios-search"  style={{backgroundColor: 'white', position: 'relative', left: -10, top: 2,  width: 23}} />
           <Input 
             placeholder={placeholder}
             autoCapitalize='none' 
             autoCorrect={false}
             value={name}
             onChangeText={(newValue) => setSearch(newValue)}
+            style={{backgroundColor: 'white'}}
           />
         </Item>
         <Button transparent onPress={() => search(name)}>
@@ -33,8 +34,10 @@ const Search = ({search, placeholder}) => {
 
 const styles = StyleSheet.create({
     inputStyle: {
-        padding: 20,
-        marginLeft: 10
+        padding: 0,
+        marginLeft: 0,
+        borderColor: 'white',
+        backgroundColor: 'white'
     }
 })
 

@@ -15,15 +15,16 @@ const Items = () => {
          <View style = { styles.viewStyle } > 
                 <View>
                     <Text style={{fontWeight: 'bold'}}>
-                        3. We are currently looking for a number of items such as Toilet Roll, Bread etc</Text>
+                         We are currently looking for a number of items such as Toilet Roll, Bread etc
+                    </Text>
                      
                     </View>
          
                 
                 { toggleAdd && 
                 
-                    <View  style={{height: 160, paddingTop: 5}}>
-                        { state.length > 0 && <Text style = { styles.labelStyle } > Items Found</Text> }
+                    <View  style={{height: 100, paddingTop: 5, marginBottom: 20}}>
+                        { state.length > 0 && <Text style = { styles.labelStyle } > Items Found (quantity)</Text> }
                         { toggleAdd && state.length === 0 && <Text style = { styles.labelStyle } >No Items Found</Text> }
                         <ScrollView>
                         {
@@ -31,10 +32,9 @@ const Items = () => {
                                 <ListItem
                                     key={i}
                                     title={`${l.item}`} 
-                                    bottomDivider
                                     onPress={() => {}}
                                     style={{ position: 'relative', top: -10, left: -10, padding: 0, margin: 0}}
-                                    badge={{ value: l.number, textStyle: { color: 'white' }, containerStyle: { position: 'relative', right: 0, marginLeft: 0 } }}
+                                    badge={{ value: l.number, textStyle: { color: 'white' }, containerStyle: { position: 'absolute', right: 0, marginLeft: 0 } }}
                                />
                             ))
                         }
