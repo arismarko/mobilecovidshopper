@@ -22,8 +22,6 @@ const FormInput = ({label, name, update}) => {
                  onChangeText={(newValue) => setInput(newValue)}
               />
             </Item>
- 
-           {/* <Text>Validation</Text> */}
         </View>
     )
 }

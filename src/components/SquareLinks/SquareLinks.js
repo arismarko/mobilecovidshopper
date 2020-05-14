@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {StyleSheet, View, Text, Dimensions, TouchableOpacity } from "react-native";
+import {StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import {  Icon } from 'native-base';
 
 const SquareLinks = ({ navigation }) => {

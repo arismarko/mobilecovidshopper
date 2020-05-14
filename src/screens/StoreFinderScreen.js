@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import {StyleSheet, SafeAreaView, ScrollView } from "react-native";
+import {StyleSheet, ScrollView } from "react-native";
 
 import Layout from '../components/Layout/Layout';
 import Points from '../components/Points/Points';

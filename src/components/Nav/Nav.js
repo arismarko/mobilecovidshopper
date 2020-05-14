@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text,View, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { ListItem } from 'react-native-elements';
 
 const Nav = ({items, navigation}) => {

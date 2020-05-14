@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Button, Text, ScrollView } from 'react-native';
+import {View, StyleSheet, ScrollView } from 'react-native';
 
 import { ListItem } from 'react-native-elements'
 

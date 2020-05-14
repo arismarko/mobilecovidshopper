@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {StyleSheet, View } from "react-native";
+import { View } from "react-native";
 
 import Header from '../components/Header/Header';
 import SquareLinks from '../components/SquareLinks/SquareLinks';
@@ -15,13 +15,6 @@ const HomeScreen = (props) => {
             <SquareLinks navigation={props.navigation} />
         </View>
     )
-}
-
-
-const style = {
-    view: {
-        backgroundColor: 'white'
-    }
 }
 
 export default HomeScreen;

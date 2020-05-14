@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Button, Text, Content } from 'native-base';
-import {View, StyleSheet, Header } from 'react-native';
+import { Button, Text } from 'native-base';
+import {View, StyleSheet } from 'react-native';
 
 import FormInput from '../FormInput/FormInput';
 import Items from '../Items/Items';

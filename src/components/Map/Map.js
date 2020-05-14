@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import MapView, {Marker, PROVIDER_GOOGLE } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
-import { View, StyleSheet, Button, Text } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { Spinner } from 'native-base';
-import { getLocationAsync, getGeocodeAsync } from '../../helpers/location';
+import { getLocationAsync } from '../../helpers/location';
 
 
 const styles = StyleSheet.create({

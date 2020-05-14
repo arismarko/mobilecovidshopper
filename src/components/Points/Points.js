@@ -1,6 +1,6 @@
 import React from 'react';
-import { View , Text, ScrollView, StyleSheet} from 'react-native';
-import { List, ListItem, Thumbnail, Left, Body} from 'native-base';
+import { View , Text, StyleSheet} from 'react-native';
+import { ListItem, Thumbnail, Left, Body} from 'native-base';
 
 const Points = ({points}) => {
     return (
