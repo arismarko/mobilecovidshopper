@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 import Nav from '../Footer/Footer';
 
 import { Container, Content} from 'native-base';
-import {StyleSheet, View, Text} from "react-native";
+import { StyleSheet, View } from "react-native";
 
 const Layout = ({ navigation, children, currentScreen }) => {
 

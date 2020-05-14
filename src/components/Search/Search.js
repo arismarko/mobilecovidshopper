@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Container, Header, Item, Input, Icon, Button, Text } from 'native-base';
+import {  StyleSheet } from 'react-native';
+import { Header, Item, Input, Icon, Button, Text } from 'native-base';
 
 const Search = ({search, placeholder}) => {
     const [name, setName] = useState('')

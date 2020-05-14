@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import {StyleSheet, SafeAreaView } from "react-native";
+import {StyleSheet } from "react-native";
 
 import Stores from '../components/Stores/Stores';
 import Search from '../components/Search/Search';

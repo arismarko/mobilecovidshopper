@@ -1,5 +1,5 @@
-import React, { useEffect, useContext } from "react";
-import {StyleSheet, View } from "react-native";
+import React, { useContext } from "react";
+import {StyleSheet } from "react-native";
 
 import AddStore from '../components/Stores/AddStore';
 import Layout from '../components/Layout/Layout';

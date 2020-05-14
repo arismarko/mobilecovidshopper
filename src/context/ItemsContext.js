@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import createDataContext from './createDataContext';
 
 import itemsReducer from './reducers/items.reducer';
@@ -9,11 +9,8 @@ const addItem = dispatch => {
     }
 }
 
-const removeItem = dispatch => {
-}
-
 export const { Context, Provider } = createDataContext(
     itemsReducer, 
-    { addItem, removeItem },
+    { addItem },
     []
 );

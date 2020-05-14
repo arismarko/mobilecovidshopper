@@ -1,9 +1,9 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import createDataContext from './createDataContext';
 
 import pointsReducer from './reducers/points.reducer';
 
-import { getLocationAsync, getGeocodeAsync } from '../helpers/location';
+import { getLocationAsync } from '../helpers/location';
 
 import axios from 'axios';
 

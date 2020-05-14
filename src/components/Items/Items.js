@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { View, StyleSheet, ScrollView, Modal } from 'react-native';
-import { Button, Text, Header, Icon } from 'native-base';
+import { Button, Text } from 'native-base';
 import { ListItem } from 'react-native-elements';
 
 import AddItems from './AddItems';
