@@ -40,7 +40,7 @@ const StoreFinderScreen = props => {
     }, [])
 
     return  <Layout navigation={props.navigation}  currentScreen={'Stores'}>
-                <Search search={searchStores} placeholder="Search for a supermarket, e.g tesco" />
+                <Search search={searchStores} placeholder="Search for a store, e.g tesco" />
                 <Map  stores={stores} />
                 <ScrollView>
                   <Points points={stores} />

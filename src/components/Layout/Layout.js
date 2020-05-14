@@ -29,7 +29,7 @@ const Layout = ({ navigation, children, currentScreen }) => {
 
 const styles = StyleSheet.create({
     container: {
-       height: 640,
+       height: 500,
        backgroundColor: 'white'
     }
 })
