@@ -45,7 +45,7 @@ export default ({stores }) => {
           const location = await getLocationAsync();
           setCurrentLocation(location);
           setLoading(true);
-          setDeltas([  0.015, 0.0121])
+          setDeltas([  0.075, 0.0121])
         }
 
         getLocation();
